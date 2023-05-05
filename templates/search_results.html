@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Results</title>
+    <style>
+      h2 {
+        color: black;
+      }
+      #results {
+        border: 1px solid #ddd;
+        padding: 20px;
+      }
+      #results ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      #results li {
+        margin-bottom: 10px;
+      }
+    </style>
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    <h2><strong>People@Pega Frequently Asked Questions</strong></h2>
+
+    <form action="/search" method="GET">
+      <input type="text" id="query" name="query" value="{{ query }}">
+      <input type="submit" value="search">
+    </form> 
+
+    <div id="results">
+      <h1>Search Results</h1>
+
+      {% if results %}
+        <ul>
+          {% for result in results %}
+            <li>{{ result|safe }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No results found.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
