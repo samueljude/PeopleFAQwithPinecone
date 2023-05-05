@@ -1,0 +1,51 @@
+text
+For example:  The following figure  shows a configuration  thatprevents the assignments for the RepaymentExtension case type frompublication:A sample configuration  of the pyPF_EnablePublishRealtime When rule8 Click Save
+"Saving the report definition  rules for publishing bulk information about assignments inyour ruleset9 In the navigation pane of Dev Studio, click Records"
+"10 Expand the Reports  category, and then click Report definition"
+"11 In the list of report definition  instances, open the pyPF_PublishBulk  report definition  that applies to the Assign-Worklist  class"
+©2023 Pegasystems IncPega Process Fabric Hub 43
+"12 On the rule form header, click Save as"
+"13 On the Save as Report Definition  form, in the Context  section, in the Add to ruleset  list, select your application ruleset"
+14 Click Create and open
+"15 In the Edit filters  section, update the filter  conditions"
+For example: The following figure  shows filters  that prevent theassignments for the RepaymentExtension case type from publication:A sample configuration  of the pyPF_PublishBulk report definition16 Click Save
+"17 In the list of report definition  instances, open the pyPF_PublishBulk  report definition  that applies to the Assign-WorkBasket  class"
+18 Repeat steps 12 through 16
+Modification  of the standard mappings published toPega Process Fabric HubExtensions pass fields  from your application to Pega Process Fabric Hub so that PegaProcess Fabric Hub reflects  data from your application Overriding default extensions maps the values between your application and Pega Process Fabric Hub in a way that is accurate for your unique business scenario
+"Additional fields  that Pega Process FabricHub includes are Customer , Product , and Account With the additional fields,  you can ©2023 Pegasystems IncPega Process Fabric Hub 44"
+"present more detailed assignment data in Pega Process Fabric Hub If your application stores related data in fields  with different  names, by overriding default extensions, you ensure that information between your application and Pega Process Fabric Hub passes correctly"
+"Standard assignment dataPega Process Fabric Hub includes the following standard fields  to store assignmentdata:•RegistrationID•AssingTo•AssignToType•CaseTypeClass•Status•TaskID•Label•Priority•TaskCreateDateTime•TaskCreateOperatorThe Customer , Product , and Account  fields  are additional and you can use thesefields  to pass more detailed data to Pega Process Fabric Hub by using extensions You add the Pega Process Fabric extensions to your application when you install the Pega Process Fabric Hub connector component"
+"The extensions use both bulk sync andreal-time APIs to pass data from your applications to Pega Process Fabric Hub If you want to pass values from fields  in your application, first you need to identify the class that stores the field  value in your Pega Platform system"
+"The Assign-  classesTo pass values that the system stores in the Assign-Worklist  or Assign-WorkBasket  classes,you override the following items:©2023 Pegasystems IncPega Process Fabric Hub 45"
+•The Assign-Worklist pyPF_PublishBulk  and Assign-WorkBasket
+pyPF_PublishBulk  reportdefinitions  by adding your columns to these reports The bulk sync that runs during the registration activation process uses these reports to fetch assignment data from the database
+"However, real-time sync usesassignment BLOB for sourcing assignment data As a result, overriding the Assign- Worklist"
+pyPF_PublishBulk  and Assign-WorkBasket pyPF_PublishBulk  report definitions impacts only bulk sync
+"•The Assign- pyPF_SetRequest  data transform by adding your field,  for example RequestPage"
+label = Primary pxTaskLabel
+"Both bulk sync and real-time sync use this data transform to prepare the taskrequest The Work-  classes To pass values that the system stores in your Work-  class, you override the following items: •The Work-"
+pyPF_GetCases  report definition  by adding your column to this report Both bulk sync and real-time sync use this report definition  to fetch case information in the task request preparation
+"•The Work- pyPF_SetRequest  data transform by adding your field,  for example the RequestPage"
+caseLabel = Primary pyLabel  format
+"Both bulk sync and real-time sync use this data transform to prepare the taskrequest Other classes If the value belongs to a class that is different  than the Assign-  or Work-  class, you override the System-Queue-PPF-Connect-Assign  data transform by adding your field,  for ©2023 Pegasystems IncPega Process Fabric Hub 46"
+example RequestPage accountID = Primary
+pyAccountId Both bulk sync and real- time sync use this data transform to prepare the task request
+"Order of preferenceAvoid including a field  in multiple extensions However, if your business process requires the same field  in multiple extensions, the system considers classes that store fields  in the following order: 1"
+The System-Queue-PPF-Connect-Assign pyPF_SetRequest  data transform 2
+Your Work-  class3 The Work-  class 4
+"The Assign-  classFor example, if you include the same field  in the Work-  and Assign-  classes, the systemreferences the field  from the Work-  class Filtering case types for publication Specify which case types you want to allow or block when you publish case type data from your remote application with the connector component to Pega Process Fabric Hub"
+Before you begin:•Ensure that your remote application has the Pega Process Fabric HubConnector for Pega Platform version 8 6 that is compatible with Pega Process Fabric Hub version 2
+"1 For more information, see Pega Process Fabric Hub Connectors  and Installing the Pega Process Fabric Hub connector component"
+"•You perform the configuration  in your remote application For more information, see Registering and managing remote applications in Pega Process Fabric Hub"
+©2023 Pegasystems IncPega Process Fabric Hub 47
+"By default, all case types in the Cases & data  tab are published to Pega ProcessFabric Hub You filter  the case types that you want to publish to Pega Process Fabric Hub from your remote application by updating a Pega Process Fabric Hub extension activity rule in your application"
+"1 In the navigation pane of Dev Studio, click Records"
+"2 Expand the Technical  category, and then click Activity"
+"3 In the list of Activity rule instances, open the pyPF_GetCaseSyncClassesExt  Activity rule that applies to the Code-Pega-List  class"
+"4 On the rule form header, click Save as"
+"5 On the Save As Activity  form, in the Context  section, in the Add to ruleset  list, select your application ruleset"
+6 Click Create and open
+"7 On the Steps  tab, update the list of case types that your application publishes to Pega Process Fabric Hub: Choices Actions Remove a case type a"
+Click Add a step b
+"Add a loop by clicking Loop , andthen, in the Repeat  section, selectFor each embedded page c"
+Click Submit d

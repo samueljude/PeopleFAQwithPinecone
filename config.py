@@ -1,0 +1,3 @@
+OPENAI_API_KEY = "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"
+PINECONE_API_KEY = "40cdf74f-e25a-4f9d-bb12-e3098f659e23"
+PINECONE_INDEX_NAME = "peopleindex"

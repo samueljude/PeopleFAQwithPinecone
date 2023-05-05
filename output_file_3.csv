@@ -1,0 +1,51 @@
+text
+b Click Add item
+"c In the Page name  field,  enter RequestPage"
+"actions() , and then, in theClass  field,  enter $NONE 7"
+Click Save 8
+"In the navigation pane of Dev Studio, click Records 9"
+"Expand the Data Model  category, and then click Data Transform ©2023 Pegasystems IncPega Process Fabric Hub 14"
+"10 In the list of data transform instances, open the pyPF_SetCaseRequest  data transform, as in the following figure: Opening the Work-"
+"pyPF_SetCaseRequest data transform11 Click Save as , and then save the rule in your application ruleset and corresponding case type class"
+"12 On the Definition  tab, define  the data transform by entering the following values: Row Action Target Relation Source 1 Remove RequestPag e"
+actionsNotapplicableNotapplicable2 Update Page RequestPage actions( <APPEND>)Not applicableNot applicable 2
+"1 Set ID equal to ""redirect 2"
+2 When Applicatio n
+pyIsConstellationAppNotapplicableNotapplicable2 2
+"1 Comment "" ""+@(Pega -RULES:Uti lities)"
+"pzEncryptURLActionString(tools,""NotapplicableNotapplicable©2023 Pegasystems IncPega Process Fabric Hub 15"
+"Row Action Target Relation SourceGlobal"",""pyActivity=pyMobileSnapStart&Action=openWorkByHandle&InsHandle=""+Primary pzInsKey +""&pyShowF ullPortal= true&Threa dName=""+Pr imary"
+pyID)2 2
+"2 Set href equal to """
+"""+@(Pega-RULES:Utilities) pz EncryptURL ActionStri ng(tools,"" Global"",""p yActivity= pyMobileSn apStart&Ac tion=openW orkByHandl e&InsHandl e=""+Primar y"
+"pzInsKey+""&pyShowF©2023 Pegasystems IncPega Process Fabric Hub 16"
+"Row Action Target Relation SourceullPortal=true&ThreadName=""+Primary pyID ) 2"
+3 Otherwise NotapplicableNotapplicableNotapplicable2 3
+"1 Comment @pxIndexInPageListIgnoreCase( pxObjClass ,""pyWorkTy peImplemen tationClas sName"",App lication"
+pyWorkMetaData)NotapplicableNotapplicable2 3
+2 Set Param Work MetaIndexequal to @pxIndexIn PageListIg noreCase(
+"pxObjClass,""pyWorkTypeImplementationClassName"",Application p yWorkMetaD ata) ©2023 Pegasystems IncPega Process Fabric Hub 17"
+Row Action Target Relation Source2 3
+3 When Param Work MetaIndex> -1Not applicableNot applicable 2
+"1 Comment ""/""+@toLowerCase(Application p yWorkMetaD ata(Param"
+"WorkMetaIndex) pyWor kTypeName) +""s/""+@wha tComesAfte rLast("
+"pzInsKey,"" "")NotapplicableNotapplicable2 3"
+3 2 Set
+"href equal to ""/""+@toLowerCase(Application p yWorkMetaD ata(Param"
+"WorkMetaIndex) pyWor kTypeName) +""s/""+@wha tComesAfte rLast("
+"pzInsKey,' ')2 4 Set"
+"title equal to ""Redirectand Open""2 5 Set"
+"type equal to ""Get""©2023 Pegasystems IncPega Process Fabric Hub 18"
+For example: The following figure  shows a correctly completeddata transform:Work- pyPF_SetCaseRequest data transform 13
+"On the Pages & Classes  tab, define  the data pages that the data transformaccesses:a In the Page name  field,  enter RequestPage , and then, in the Class  field, enter $NONE"
+b Click Add item
+"c In the Page name  field,  enter RequestPage"
+"actions() , and then, in the Classfield,  enter $NONE d"
+Click Save ©2023 Pegasystems IncPega Process Fabric Hub 19
+"What to do next: Continue with registering your application For more information, see Establishing communication between Pega Process Fabric Hub and Pega Platform by editing dynamic system settings"
+"Establishing communication between Pega ProcessFabric Hub and Pega Platform by editing dynamicsystem settingsFor a seamless user experience, ensure that the Pega Platform system that hosts yourapplications communicates correctly with Pega Process Fabric Hub Add the Pega Process Fabric Hub URL to a dynamic system setting in your system so that your applications within the system can send assignments to Pega Process Fabric Hub"
+Before you begin: Prepare your Pega Platform system to create theconnection with Pega Process Fabric Hub:•Obtain the Pega Process Fabric Hub URL by contacting your administrator •Add the Pega Process Fabric connector component to your remote application
+"For more information, see Installing the Pega Process FabricHub connector component Note:  Because the dynamic system settings impact your entire Pega Platform environment, you only need to edit the settings once"
+The configuration  affectsall the applications in your Pega Platform system 1
+"In the navigation pane of Dev Studio, click Records 2"
+"Expand the SysAdmin  category, and then click Dynamic System Settings ©2023 Pegasystems IncPega Process Fabric Hub 20"

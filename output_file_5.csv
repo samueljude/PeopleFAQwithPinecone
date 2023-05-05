@@ -1,0 +1,51 @@
+text
+"•If you host your application in Pega Platform version 8 3 or later, configure OAuth 2"
+"0 authentication for your remote application For more information, see Creating a secure connection with Pega Process Fabric Hub by configuring  OAuth 2"
+0 authentication Configuring  synchronization with Pega Process Fabric Hub If you host your applications in Pega Platform version 8
+"1 or 8 2, ensure that queue processors and the AsyncProcessor requestor run correctly so that Pega Process Fabric Hub can successfully synchronize data with your application"
+Note:  Configuring  queue processors and the AsyncProcessor requestorapplies only to applications that you host in Pega Platform versions 8 1 and 8
+2 If you host your application in Pega Platform version 8
+"3 or later, omitconfiguring  queue processors and the AsyncProcessor requestor, and continuewith configuring  OAuth 2 0 authentication"
+"For more information, see Creatinga secure connection with Pega Process Fabric Hub by configuring  OAuth 2 0 authentication"
+"Queue processors and the AsyncProcessor requestor synchronize assignments,operator to work queue mappings, and work queue metadata After you install the ©2023 Pegasystems IncPega Process Fabric Hub 28"
+"Pega Process Fabric Hub connector component, your remote application includes thefollowing queue processors:•pyPF_PublishAssignment•pyPF_PublishBulkAssignments•pyPF_PublishBulkOperators•pyPF_PublishBulkWorkQueuesNote:  Because queue processor and requestor settings affect  your entirePega Platform instance, the configurations  that you apply in one applicationalso affect  other applications in your environment 1"
+"In the navigation pane of Dev Studio, click Records 2"
+"Expand the SysAdmin  category, and then click Requestor Type 3"
+"In the list of requestor type instances, click the ASYNCPROCESSOR  requestor typefor the system that hosts your application For example: Select the Asyncprocessor requestor type for the Pega system: ©2023 Pegasystems IncPega Process Fabric Hub 29"
+AsyncProcessor type in the list of requestor types4 Define  how the requestor type runs in the system: Choices Actions Use an access group a
+"In the Define  this requestor typelist, select an Application-basedAccess Group b"
+Click Add item c
+"In the Access Group Name  field,enter an access group from yourapplication that you want to registerwith Pega Process Fabric Hub d"
+"Make the application access groupactive by clicking the radio buttonnext to the access group name Result: The AsyncProcessor requestor type can communicate with the Pega Process Fabric Hub based on the access group, as in the following example: ©2023 Pegasystems IncPega Process Fabric Hub 30"
+"Choices ActionsAsyncProcessor requestortype configurations  basedon access groupUse rulesets and roles a In the Define  this requestor type list, select list of RuleSets and Roles"
+Note:  AsyncProcessorrequestor typeconfiguration  that is basedon rulesets and roles isdeprecated Use the rulesets and roles option only if your AsyncProcessor requestor type is already configured to support rulesets and roles
+"b In the Starting rulesets  column, create a list of rulesets by clicking Add row  and entering the following rulesets in this order: Pega- ProCom:01-01 , Pega- IntSvcs:01-01 , Pega-WB:01-01 , and Pega-RULES:01-01"
+"c Click Add row , and then add the Pega Process Fabric ruleset for a version that matches your version of Pega Platform"
+©2023 Pegasystems IncPega Process Fabric Hub 31
+"Choices ActionsForexample: For PegaPlatform 8 1, enter Pega- ProcessFabric:08-01"
+"d In the Starting roles  field,  enter PegaRULES:AsyncProcessor"
+"Result: TheAsyncProcessor requestortype can communicate withPega Process Fabric Hubbased on the list of rulesets,as shown in the followingexample:AsyncProcessor requestortype configurations  basedon rulesets and roles5 Click Save"
+©2023 Pegasystems IncPega Process Fabric Hub 32
+Creating a secure connection with Pega Process FabricHub by configuring  OAuth 2 0 authentication Provide a secure connection between the applications that your Pega Platform system hosts and Pega Process Fabric Hub by creating an OAuth 2
+"0 client registration As a result, you receive a secure ID and password so that you can ensure that the communication between your applications and Pega Process Fabric Hub is safe"
+"By using the OAuth 2 0 protocol, Pega Process Fabric Hub can communicate securely with your applications over HTTPS"
+You define  OAuth 2 0 client registration data instances so that Pega Process Fabric Hub can access Pega Platform REST services
+"When you define  the OAuth 2 0 client registration, you receive a client ID and a client secret that you use when you register your application in Pega Process Fabric Hub to create a secure connection"
+"Client IDs and client secrets are unique to every operator inyour system After you create the client ID and client secret, you can use these credentials to register multiple applications that your operator can then access as an administrator"
+1 Create a new OAuth 2
+"0 client registration:a In the header of Dev Studio, click Create  > Security  > OAuth 2"
+0 ClientRegistration b
+"In the Short description  field,  provide some descriptive information for yourclient registration c"
+"In the Client Name  field,  provide a client name for your OAuth 2 0 client registration"
+d Click Create and open
+"2 On the Client information  tab, in the Client Credentials  section, in the Type of client  parameter, select Confidential"
+"3 In the Supported grant types  section, select the JWT bearer  check box"
+©2023 Pegasystems IncPega Process Fabric Hub 33
+Note:  Ensure that you clear the remaining check boxes 4
+"In the Identity mapping  field,  enter PPFConnect For example: The following figure  shows correct configurations  of supported grant types and identity mapping: Security configurations  for connection with Pega Process Fabric Hub 5"
+"In the Client information  section, click View & download Result: The View & download  window opens and displays your client secret"
+"6 In the View & download  window, click Download credentials"
+©2023 Pegasystems IncPega Process Fabric Hub 34
+"For example: The following figure  shows how to view anddownload the secure credentials:Obtaining client ID and password7 In the Save As  dialog box, select a secure location to save the file that stores your credentials, and then click Save"
+8 Click Save
+Result: You use the client ID and the client secret to register everyapplication that you associate with a current operator Activating applications in Pega Process Fabric Hub Start processing assignments from multiple applications within one window by activating your applications in Pega Process Fabric Hub

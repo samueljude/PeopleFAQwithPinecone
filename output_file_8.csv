@@ -1,0 +1,45 @@
+text
+Add a When condition by clickingWhen e
+Select the Enable conditions beforethis action  checkbox f
+"In the When  field,enter pyWorkTypeImplementati ©2023 Pegasystems IncPega Process Fabric Hub 48"
+Choices ActionsonClassName== the name of theimplementation class of the case typethat you want to remove g
+"In the if false  field,  select Skip Step For example: A sample configuration  of the pyPF_GetCaseSyncClassesE xt extension activity h"
+Click Submit i
+"In the Method  field,  enter Page-Removej In the Step page  field, enter"
+pxResults Note:  Ensure that you have the
+pxResults  datapage and the Embed-Application-WorkMetaDataclass added to the pagesand classes list on the©2023 Pegasystems IncPega Process Fabric Hub 49
+Choices ActionsPages & Classes  tab of theextension activity Add a case type a
+Click Add a step b
+"In the Method  field,  enterProperty-Set , and then clickExpand to see method parameters c"
+"In the PropertiesName  filed,  enterPrimary pxResults(<APPEND>)"
+"pyWorkPoolName , and then in thePropertiesValue  fields,  enter thename of the work pool for the casetype that you want to add d"
+Click Add item e
+"In the PropertiesName  filed,  enterPrimary pxResults(<LAST>)"
+"pyWorkTypeImplementationClassName, and then in thePropertiesValue  fields,  enter thename of the implementation class ofthe case type that you want to add f"
+Click Add item g
+"In the PropertiesName  filed,  enterPrimary pxResults(<LAST>)"
+"pyWorkTypeName , and then in thePropertiesValue  fields,  enter thename of the case type that you wantto add For example: ©2023 Pegasystems IncPega Process Fabric Hub 50"
+Choices ActionsA sample configuration  ofthepyPF_GetCaseSyncClassesExt extension activity8 Click Save
+Filtering cases for publicationPublish only those cases that meet a specific  condition from your remote application toPega Process Fabric Hub Before you begin: •Ensure that your remote application has the Pega Process Fabric Hub Connector
+"For more information, see Installing the Pega Process FabricHub connector component  and Pega Process Fabric Hub Connectors •You perform the configuration  in your remote application"
+"For moreinformation, see Registering and managing remote applications in PegaProcess Fabric Hub By default, your remote application publishes all the cases of the selected case types to Pega Process Fabric Hub"
+Saving the When rule for publishing real-time information about cases in your ruleset©2023 Pegasystems IncPega Process Fabric Hub 51
+"1 In the navigation pane of Dev Studio, click Records"
+"2 Expand the Decision  category, and then click When"
+"3 In the list of When rule instances, open the pyPF_EnablePublishRealtime  When rule that applies to the Work-  class"
+"4 On the rule form header, click Save as"
+"5 On the Save as When  form, in the Context  section, in the Apply to  field,  enter the class of the case type"
+"6 In the Add to ruleset  list, select your application ruleset"
+7 Click Create and open
+"8 On the Advanced  tab, update the condition and logic string"
+For example:  The following figure  shows a configuration  forpublishing cases for the RepaymentExtension case type only if the value ofthe Region  property is NORTH :Configuration  for publishing only the cases in which the value ofthe Region property is NORTH 9
+Click Save Saving the report definition  rule for publishing bulk information about cases in your ruleset 10
+"In the navigation pane of Dev Studio, click Records 11"
+"Expand the Reports  category, and then click Report definition 12"
+"In the list of Report Definition  rule instances, open the pyPF_PublishBulk  ReportDefinition  rule that applies to the Work-  class ©2023 Pegasystems IncPega Process Fabric Hub 52"
+"13 On the rule form header, click Save as"
+"14 On the Save as Report Definition  form, in the Context  section, in the Add to ruleset  list, select your application ruleset"
+15 Click Create and open
+16 Update the filter  conditions
+17 Click Save
+©2023 Pegasystems IncPega Process Fabric Hub 53

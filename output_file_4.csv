@@ -1,0 +1,51 @@
+text
+"3 In the list of the dynamic system settings instances, select PegaProcessFabricSvcURL"
+"4 On the Settings  tab, in the Value  field,  enter the Pega Process Fabric Hub URL"
+"For example: Enter https:// sample URL , as in the followingfigure:Dynamic system settings configuration  for the Pega Process FabricHub5 Click Save"
+"For example:  Updating a keystore for Pega Platform to connect toPega Process Fabric HubTo create a safe and reliable connection between your applications and Pega ProcessFabric Hub, update the keystore in your Pega Platform system that points to PegaProcess Fabric Hub A keystore is a file that contains keys and certificates  that you use for encryption, authentication, and serving content over HTTPS"
+To connect to Pega Process Fabric©2023 Pegasystems IncPega Process Fabric Hub 21
+"Hub, you update a keystore data instance that points to the URL of your Pega ProcessFabric Hub instance Note:  Adding the Pega Process Fabric Hub URL to your keystore is a system- wide action, so you only edit the keystore once for your Pega Platform system"
+The configuration  impacts all of the applications in your Pega Platform system 1
+"In the navigation pane of Dev Studio, click Records 2"
+"Expand the Security  category, and then click Keystore 3"
+"In the list of keystore instances, select PPFConnect 4"
+"On the Main  tab, in the Keystore location  field,  press the Down arrow key, andthen select Reference to URL 5"
+"In the Keystore URL  field,  enter the URL of the site that hosts Pega Process FabricHub You only change the part of the URL that indicates the hosting server, as in the following example"
+For example: Enter https:// hosting server URL /PRRestService/keys/v1/jwt/PPFToRemoteTokenGeneration 6
+"In the Keystore type  list, select JSON Web Key (JWK) 7"
+"In the Refresh strategy  list, select Reload once per interaction 8"
+Click Save Result: The following figure  shows a complete keystore configuration: ©2023 Pegasystems IncPega Process Fabric Hub 22
+"Keystore configurations  that support communication with the PegaProcess Fabric HubProviding access rights for Pega Process Fabric Hub byediting a service packageTo ensure that Pega Process Fabric Hub can establish a connection with theapplications in your Pega Platform system, configure  appropriate access rights for PegaProcess Fabric Hub by editing a service package A service package is a collection of services that controls access to the listeners for services with defined  access groups, such as authentication and REST services"
+"Byupdating a service package, you ensure that Pega Process Fabric Hub can connect toyour registered applications ©2023 Pegasystems IncPega Process Fabric Hub 23"
+Note:  Service package settings are system-wide and affect  all applications inyour instance of Pega Platform You only need to configure  these settings once and the configuration  affects  all applications
+The configuration  resets onlyafter you reinstall the Pega Process Fabric Hub connector component fromyour remote application 1
+"In the navigation pane of Dev Studio, click Records 2"
+"Expand the Integration-Resources  category, and then click Service Package 3"
+"In the list of the service package instances, select ppfconnect 4"
+"On the Context  tab, in the Processing mode  list, select Stateless 5"
+"In the Service access group  field,  enter the name of an access group in theapplication that you want to connect to the Pega Process Fabric Hub For example: Enter YourApplication :Administrators"
+"Note:  If you use a custom access group other thanApplication :Administrators  or Application :Authors , add the accessgroup to the AllowedRegistrationAccessGroups  dynamic system setting For more information, see Modification  of the standard mappings published to Pega Process Fabric Hub  and Editing a dynamic system setting"
+"Ensurethat the access group is present in your operator record For more information, see Defining  user contact information and application access"
+6 Select the Requires authentication  checkbox
+"7 In the Authentication type  list, select OAuth 2"
+Select the Suppress Show-HTML  checkbox ©2023 Pegasystems IncPega Process Fabric Hub 24
+"For example: The following figure  shows a sample configurationfor the service package:Service package configurations9 In the Methods  section, view the newly created REST services by clicking Refresh"
+"Result: The ppfconnect  service package now includes the app,assignments/{assignmentID}/canperform , and applications/{applicationName}/actions/{action}  REST services that you use to communicate with PegaProcess Fabric Hub, as in the following figure:©2023 Pegasystems IncPega Process Fabric Hub 25"
+REST methods to communicate with Pega Process Fabric Hub10 Click Save
+What to do next:•If you host your application in Pega Platform version 8 1 or 8
+"2, createsynchronization between your application and Pega Process Fabric Hub For more information, see Configuring  synchronization with Pega Process Fabric Hub"
+"•If you host your application in Pega Platform version 8 3 or later, list your application in the System Runtime Context"
+"For more information, seeIncluding an application in System Runtime Context Configuring  a token profile  for a remote application If you host your remote application on the same system on which you also host your instance of Pega Process Fabric Hub, configure  a truststore in a token profile  of your remote application to establish a secure and reliable connection between your application and Pega Process Fabric Hub"
+©2023 Pegasystems IncPega Process Fabric Hub 26
+"Note:  If you host your instance of Pega Process Fabric Hub and your remoteapplication on different  systems, or if you retain the default configuration  of atruststore for your remote application, you can continue the applicationregistration process without performing this procedure Before you begin: •Ensure that you host both your remote application and Pega Process Fabric Hub on the same system"
+"•Configure  a keystore for your remote application For more information, see Updating a keystore for Pega Platform to connect to Pega Process Fabric Hub"
+"When you add the Pega Process Fabric Hub Connector component to yourapplication, the system automatically adds a PPFConnect  token profile  to yourapplication By default, the PPFConnect  token profile  points to a PPFConnect  truststore, which supports only scenarios in which you host Pega Process Fabric Hub and your remote applications on different  systems"
+"If you host your Pega Process Fabric Hubinstance and your remote application on the same system, you need to provide atruststore that supports this configuration 1"
+"In the navigation pane of Dev Studio, click Records 2"
+"Expand the Security  category, and then click Token Profile 3"
+"In the list of token profile  instances, click PPFConnect 4"
+"On the Processing  tab, in the Security  section, in the Truststore  field,  enterPPFKS Note:  If you use a customized truststore, enter the name of your truststore instead of PPFKS"
+©2023 Pegasystems IncPega Process Fabric Hub 27
+5 Click Save
+What to do next:•If you host your application in Pega Platform™ version 8 1 or 8
+"2, configuresynchronization in your remote application For more information, see Configuring  synchronization with Pega Process Fabric Hub"

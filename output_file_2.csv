@@ -1,0 +1,51 @@
+text
+"On the application rule form, click Save For example:   What to do next: Proceed with the installation process: •If your remote application uses Constellation on Pega Platform version 8"
+"6,prepare the application for registration For more information, see Enabling Constellation applications for registration"
+"•If you build your remote application by using UI-Kit or Theme Cosmos, oryou host your application on Pega Platform version 8 5 or earlier, create a connection between your remote application and Pega Process Fabric Hub"
+"For more information, see Establishing communication between PegaProcess Fabric Hub and Pega Platform by editing dynamic system settings Enabling Constellation applications for registration Merge seamless work management and an innovative UI framework by enabling Constellation applications for registration with Pega Process Fabric Hub"
+"By default,Constellation applications are not compatible with Pega Process Fabric Hub, but afteryou provide a correct data transform configuration,  your applications can publish datato Pega Process Fabric Hub for unified  case and assignment management in yourorganization ©2023 Pegasystems IncPega Process Fabric Hub 8"
+Note:  Enabling Constellation applications applies only to applications that youbuild in Pega Platform™ version 8 6 by using Constellation
+"If you build yourapplication in the UI-Kit or Theme Cosmos, or an earlier version of PegaPlatform, skip this procedure and continue the registration process For more information, see Establishing communication between Pega Process Fabric Hub and Pega Platform by editing dynamic system settings"
+"For more information, see Constellation architecture and Traditional UIarchitecture After you install the Pega Process Fabric Hub connector component, your application includes an empty Assign-"
+pyPF_SetRequest  data transform and an emptyWork- pyPF_SetCaseRequest  data transform
+"When you provide correct configuration  forthe data transforms, you can register your Constellation application with Pega ProcessFabric Hub 1"
+"In the navigation pane of Dev Studio, click Records 2"
+"Expand the Data Model  category, and then click Data Transform 3"
+"In the list of data transform instances, open the Assign- pyPF_SetRequest  data transform, as in the following figure: Opening the Assign-"
+pyPF_SetRequest data transform©2023 Pegasystems IncPega Process Fabric Hub 9
+"4 Click Save as , and then save the rule in your application ruleset"
+"5 On the Definition  tab, define  the data transform by entering the following values: Row Action Target Relation Source 1 When RequestPag e"
+"status = ""Resolved""Not applicableNot applicable 1"
+1 Remove RequestPage actionsNot applicableNot applicable 1
+2 Update Page RequestPage actions( <APPEND>)Not applicableNot applicable 1
+2 1 Set
+"ID equal to ""redirect""1 2"
+2 When Applicatio n
+pyIsConstellationAppNotapplicableNotapplicable1 2
+"2 1 Comment """
+"""+@(Pega-RULES:Utilities) pz EncryptURL ActionStri ng(tools,"" Global"",""p yActivity= pyMobileSn apStart&Ac tion=openA ssignment""Not applicableNot applicable ©2023 Pegasystems IncPega Process Fabric Hub 10"
+"Row Action Target Relation Source)+""&InsHandle=""+Primary pzInsKe y+""&InsCla ss=""+Prima ry"
+"pxObjClass+""&pyShowFullPortal=true""1 2"
+2 2 Set
+"href equal to "" ""+@(Pega -RULES:Uti lities)"
+"pzEncryptURLActionString(tools,""Global"",""pyActivity=pyMobileSnapStart&Action=openAssignment"")+""&InsHandle=""+Primary pzInsKe y+""&InsCla ss=""+Prima ry"
+"pxObjClass+""&pySh©2023 Pegasystems IncPega Process Fabric Hub 11"
+"Row Action Target Relation SourceowFullPortal=true""1 2"
+3 Otherwise notapplicableNotapplicableNotapplicable1 2
+3 1 Comment @pxIndexIn PageListIg noreCase(
+"pxRefObjectClass,""pyWorkTypeImplementationClassName"",Application pyWor kMetaData)Not applicableNot applicable 1"
+2 Set Param Work MetaIndexequal to @pxIndexIn PageListIg noreCase(
+"pxRefObjectClass,""pyWorkTypeImplementationClassName"",Application pyWor kMetaData) 1"
+3 When Param Work MetaIndex> -1Not applicableNot applicable ©2023 Pegasystems IncPega Process Fabric Hub 12
+Row Action Target Relation Source1 2
+"1 Comment ""/""+@toLowerCase(Application p yWorkMetaD ata(Param"
+"WorkMetaIndex) pyWor kTypeName) +"" <s/ or es/ or ies/ >""+@whatCo mesAfterLa st("
+"pxRefObjectKey,'')NotapplicableNotapplicable1 2"
+"2 Set href equal to ""/""+@toLow erCase(App lication"
+pyWorkMetaData(Param WorkMetaIn dex)
+"pyWorkTypeName)+""s/""+@whatComesAfterLast( pxR efObjectKe y,' ') ©2023 Pegasystems IncPega Process Fabric Hub 13"
+Row Action Target Relation Source1 2
+"4 Set title equal to ""Redirect and Open"" 1"
+2 5 Set
+"type equal to ""Get""For example: The following figure  shows a correctly completeddata transform:Assign- pyPF_SetRequest data transform 6"
+"On the Pages & Classes  tab, define  data pages that the data transform accessesby entering the following values:a In the Page name  field,  enter RequestPage , and then, in the Class  field, enter $NONE"

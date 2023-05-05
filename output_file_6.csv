@@ -1,0 +1,51 @@
+text
+"After you register and activateyour application, you can process Interwoven Worklist that includes tasks from differentapplications, without logging in and out between the applications ©2023 Pegasystems IncPega Process Fabric Hub 35"
+1 Log in to Pega Process Fabric Hub as a configurator
+"2 In the navigation pane of Pega Process Fabric Hub, click Registered applications"
+"3 In the header of the Registered applications  section, click Register application"
+"4 In the Register application  dialog box, enter the details of the application that you want to add: a"
+"In the Platform  list, select the platform that stores your application The default option is Pega"
+"b In the System URL  field,  enter the application alias URL for applications that you host in Pega Platform version 8"
+"4 or later, or the system URL forapplications that you host in Pega Platform version 8 3 or earlier"
+Use the https://domain/context-root/auth-servlet-path  format For example: Enter https://uplustelco
+"com/prweb/PRAuth/SSO As part of the remote system URL, you can provide authentication servlet details"
+"Pega Process Fabric Hub uses authentication information whenlaunching the URL to render remote assignments If you have single sign on (SSO) configured  for your application, providing the authentication servlet details ensures that the process involves the correct servlet and users that are already authenticated do not need to perform any additional authentication"
+"As a result, your application uses SSO when a useropens an assignment by using Interwoven Worklist or Next Best Work inPega Process Fabric Hub For a non-SSO-based system, the recommendation is to use the Application URL alias, which you can find on the Application Definition  tab of your application"
+"c In the Client ID  field,  enter the OAuth 2"
+0 client registration ID that yougenerate when creating the OAuth 2 0 client registration
+©2023 Pegasystems IncPega Process Fabric Hub 36
+"d In the Client Secret  field,  enter the client secret that you generate when creating the OAuth 2"
+0 client registration e
+"Click Continue For example: The following figure  shows sample data that an application registration requires: Registering an application In the System URL  field,  the uplustelco"
+"com  is a domain name,prweb  is a root context, and PRAuth/SSO  is the authenticationservlet 5"
+Continue the process depending on the registration status:©2023 Pegasystems IncPega Process Fabric Hub 37
+"Choices ActionsApplication registration is successful a In the Register application  dialog box, in the Application  list, select an application that you want to register, and then click Create , as in the following figure: Selecting an application Result: The landing page of your application opens"
+Your application hasthe Pending-Activationstatus b
+Activate your application byperforming actions from step 6 Application registration fails Analyze and troubleshoot issues that cause registration failure
+"For more information, seeTroubleshooting application registrationerrors ©2023 Pegasystems IncPega Process Fabric Hub 38"
+"6 On the landing page of your application, click Activate connection , as in the following figure: Activating a new application Result: Your application has the Sync in progress  status, as shown in the following figure: Activating a newly registered application 7"
+"View the activation result by clicking Actions  > Refresh , and then verify theactivation status:©2023 Pegasystems IncPega Process Fabric Hub 39"
+Choices ActionsThe status is Sync-InProgress The synchronization process is still inprogress Wait until the synchronization is complete and the activation automatically changes the status to Active
+The status is Active Your application is active in Pega ProcessFabric Hub You can now manage work in your Interwoven Worklist
+The status is Activation-Failure Determine and eliminate the cause of theactivation failure:a Analyze the activation error message
+"For more information, seeTroubleshooting applicationregistration errors b"
+Fix the issue as necessary c
+"In the Activation details  section,click Activate connection , and thenrefresh the page 8"
+"Optional: To use an application icon that corresponds with your businessrequirements, in the Application details  section, click Change icon , and then inthe icons list, select a new graphic For example: For a loan requests application, select an icon with a stack of banknotes, as in the following example: ©2023 Pegasystems IncPega Process Fabric Hub 40"
+"A sample icon to associate with an applicationResult: A list of your registered applications displays icons that aredistinguishable and relevant for your applications, as in the following figure:Registered applications list with distinguishable iconsResult: Pega Process Fabric Hub now fetches assignments from yourregistered application For example:   What to do next: •Configure  the priority of assignments that Pega Process Fabric Hub fetches from your registered application by assigning appropriate weighting"
+"Formore information, see Setting the weighting for your applications •Ensure that Pega Process Fabric Hub reflects  the latest settings of your application, for example, after you edit work queues, and matches your current business needs by managing application life cycle"
+"For moreinformation, see Managing applications in Pega Process Fabric Hub ©2023 Pegasystems IncPega Process Fabric Hub 41"
+"Modification  of the default access groups withadministrative privilegesTo register an application in Pega Process Fabric Hub, your access group needs to haveadministrative privileges The default administrative access groups are Application :Administrators  and Application :Authors"
+"To meet your unique businessrequirements, you can create your custom access group with administrative privileges To use your custom access group to register applications in Pega Process Fabric Hub, edit the AllowedRegistrationAccessGroups  dynamic system setting"
+"The default value of the AllowedRegistrationAccessGroups  dynamic system setting isAll:Administrators,All:Authors You edit the dynamic system setting by adding your custom access group in the comma-separated list"
+"For more information, see Editing a dynamic system setting Filtering assignments for publication Publish only specific  assignments from your remote application with the Pega Process Fabric Hub Connector component to Pega Process Fabric Hub"
+"For example, you canprevent assignments that are related to a specific  case type from publication Before you begin: •Ensure that your remote application has the Pega Process Fabric Hub Connector installed"
+"For more information, see Installing the Pega ProcessFabric Hub connector component  and Pega Process Fabric HubConnectors •You perform the configuration  in your remote application"
+"For moreinformation, see Registering and managing remote applications in PegaProcess Fabric Hub ©2023 Pegasystems IncPega Process Fabric Hub 42"
+"Saving the When rule for publishing real-time information about assignments in yourruleset1 In the navigation pane of Dev Studio, click Records"
+"2 Expand the Decision  category, and then click When"
+"3 In the list of When rule instances, open the pyPF_EnablePublishRealtime  When rule that applies to the Assign-  class"
+"4 On the rule form header, click Save as"
+"5 On the Save as When  form, in the Context  section, in the Add to ruleset  list, select your application ruleset"
+6 Click Create and open
+"7 On the Advanced  tab, update the condition and logic string"

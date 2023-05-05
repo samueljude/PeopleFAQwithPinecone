@@ -1,0 +1,51 @@
+text
+Pega Process Fabric Hub17 February 2023©2023 Pegasystems Inc
+CONTENTSRegistering Pega applications in Pega Process Fabric Hub______________________  3Installing the Pega Process Fabric Hub connector component 
+ 6 Enabling Constellation applications for registration
+ 8 Establishing communication between the Pega Process Fabric Hub and Pega Platform
+ 20 Updating a keystore for Pega Platform to connect to Pega Process Fabric Hub
+21Providing access rights for the Pega Process Fabric Hub 
+ 23 Configuring  a token profile  for a remote application
+26Configuring  synchronization with Pega Process Fabric Hub 
+ 28 Creating a secure connection with the Pega Process Fabric Hub
+32Activating applications in Pega Process Fabric Hub 
+35Modification  of the default access groups with administrative privileges 
+ 41 Filtering assignments for publication
+ 42 Modification  of the standard mappings published to Pega Process Fabric Hub
+44Filtering case types for publication 
+47Filtering cases for publication 
+51©2023 Pegasystems IncPega Process Fabric Hub 2
+"Registering Pega applications in PegaProcess Fabric HubFor seamless management of work that include assignments from multipleapplications, register your applications in Pega Process Fabric Hub By using a unified worklist in Pega Process Fabric Hub, you save time and provide a consistent user experience"
+Before you begin: Prepare to register your applications:•Ensure that the application that you want to register is present on a PegaPlatform system that supports HTTPS and has valid certificates •Ensure that the operator IDs in the system that hosts your applications and in the system that hosts Pega Process Fabric Hub are identical
+Theoperator ID is case-sensitive Other operator details can differ  between the systems
+"•Ensure that you have an Application :Administrators ,Application :Authors , or your custom access group with administrativeprivileges in the system that hosts your applications Note:  If you use a custom access group other than Application :Administrators  or Application :Authors , add the access group to the AllowedRegistrationAccessGroups  dynamic system setting"
+"For more information, see Modification  of thestandard mappings published to Pega Process Fabric Hub  andEditing a dynamic system setting Ensure that the access group is present in your operator record"
+"For more information, seeDefining  user contact information and application access ©2023 Pegasystems IncPega Process Fabric Hub 3"
+"In Pega Process Fabric Hub, you can use Interwoven Worklist that consolidatesassignments from your numerous registered applications By using Interwoven Worklist, users save time and complete daily assignments without switching context between many applications"
+"Register your applications in Pega Process Fabric Hub by completing the followingtasks:•Installing the Pega Process Fabric Hub connector component•To connect your applications to Pega Process Fabric Hub, download and install thePega Process Fabric Hub connector component in your remote application thatyou want to register with Pega Process Fabric Hub •Enabling Constellation applications for registration• Merge seamless work management and an innovative UI framework by enabling Constellation applications for registration with Pega Process Fabric Hub"
+"Bydefault, Constellation applications are not compatible with Pega Process FabricHub, but after you provide a correct data transform configuration,  yourapplications can publish data to Pega Process Fabric Hub for unified  case andassignment management in your organization •Establishing communication between Pega Process Fabric Hub and Pega• Platform by editing dynamic system settings For a seamless user experience, ensure that the Pega Platform system that hosts your applications communicates correctly with Pega Process Fabric Hub"
+"Add thePega Process Fabric Hub URL to a dynamic system setting in your system so thatyour applications within the system can send assignments to Pega Process FabricHub •Updating a keystore for Pega Platform to connect to Pega Process Fabric Hub• To create a safe and reliable connection between your applications and Pega Process Fabric Hub, update the keystore in your Pega Platform system that points to Pega Process Fabric Hub"
+•Providing access rights for Pega Process Fabric Hub by editing a service•package©2023 Pegasystems IncPega Process Fabric Hub 4
+"To ensure that Pega Process Fabric Hub can establish a connection with theapplications in your Pega Platform system, configure  appropriate access rights forPega Process Fabric Hub by editing a service package •Configuring  a token profile  for a remote application • If you host your remote application on the same system on which you also host your instance of Pega Process Fabric Hub, configure  a truststore in a token profile of your remote application to establish a secure and reliable connection between your application and Pega Process Fabric Hub"
+•Configuring  synchronization with Pega Process Fabric Hub •If you host your applications in Pega Platform version 8 1 or 8
+"2, ensure thatqueue processors and the AsyncProcessor requestor run correctly so that PegaProcess Fabric Hub can successfully synchronize data with your application •Creating a secure connection with Pega Process Fabric Hub by configuring • OAuth 2"
+0 authenticationProvide a secure connection between the applications that your Pega Platformsystem hosts and Pega Process Fabric Hub by creating an OAuth 2 0 client registration
+"As a result, you receive a secure ID and password so that you canensure that the communication between your applications and Pega ProcessFabric Hub is safe •Activating applications in Pega Process Fabric Hub• Start processing assignments from multiple applications within one window by activating your applications in Pega Process Fabric Hub"
+"After you register andactivate your application, you can process Interwoven Worklist that includes tasksfrom different  applications, without logging in and out between the applications •Modification  of the default access groups with administrative privileges • To register an application in Pega Process Fabric Hub, your access group needs to have administrative privileges"
+"The default administrative access groups areApplication :Administrators  and Application :Authors To meet your unique business requirements, you can create your custom access group with administrative privileges"
+•Filtering assignments for publication•©2023 Pegasystems IncPega Process Fabric Hub 5
+"Publish only specific  assignments from your remote application with the PegaProcess Fabric Hub Connector component to Pega Process Fabric Hub For example, you can prevent assignments that are related to a specific  case type from publication"
+•Modification  of the standard mappings published to Pega Process Fabric Hub •Extensions pass fields  from your application to Pega Process Fabric Hub so thatPega Process Fabric Hub reflects  data from your application Overriding default extensions maps the values between your application and Pega Process Fabric Hub in a way that is accurate for your unique business scenario
+•Filtering case types for publication•Specify which case types you want to allow or block when you publish case typedata from your remote application with the connector component to Pega ProcessFabric Hub •Filtering cases for publication• Publish only those cases that meet a specific  condition from your remote application to Pega Process Fabric Hub
+"Installing the Pega Process Fabric Hub connectorcomponentTo connect your applications to Pega Process Fabric Hub, download and install the PegaProcess Fabric Hub connector component in your remote application that you want toregister with Pega Process Fabric Hub The component is responsible for tracking the creation of new assignments and publishing assignment details to Pega Process Fabric Hub"
+The component also provides all the necessary transformation capabilities beforepublishing assignments Before you begin: Download the Pega Process Fabric component from Pega Marketplace
+"Ensure that the component that you download matchesthe version of your instance of Pega Platform For more information, see Pega Process Fabric Hub connector for Pega Platform"
+©2023 Pegasystems IncPega Process Fabric Hub 6
+Note:  You only install the Pega Process Fabric component once on your PegaPlatform system The installation impacts all the applications in your Pega Platform system
+"1 In the header of Dev Studio, click the name of the application, and then click Definition"
+"2 On the Definition  tab, in the Enabled components  section, click Manage components"
+"3 In the dialog box, click Install new , as in the following figure: ©2023 Pegasystems IncPega Process Fabric Hub 7"
+"Installing a component4 In the dialog box, navigate to the"
+"zip  file that contains the Pega Process FabricHub connector component, and then click Open Result: The component installation is in progress"
+"After theinstallation is complete, the component status in the Availablecomponents  is Enabled 5"
+Click OK to close the dialog box 6
